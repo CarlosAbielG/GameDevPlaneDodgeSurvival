@@ -1,27 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy_movement : MonoBehaviour
+public class Ship_movement : MonoBehaviour
 {
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     [SerializeField]
-    private float speed = 5f;
+    private float speed = 10f;
     [SerializeField]
     private float lifeTime;
-    private Rigidbody2D rb;
 
+    private Rigidbody2D rb;
     [SerializeField]
-    private float timer=0f;
+    private float timer = 0f;
 
     Vector2 moveDirection;
-    Transform target;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    Transform target;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
-
+    
         if(target)
         {
             Vector3 direction = target.transform.position - transform.position;
@@ -38,14 +37,6 @@ public class enemy_movement : MonoBehaviour
         timer += Time.deltaTime;
 
         if(timer > lifeTime)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }

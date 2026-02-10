@@ -46,6 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::enemy_shooting
   missile: {fileID: 3874186760508602664, guid: b75422bb76a1e34488cc7a35b82827d4, type: 3}
   missilePos: {fileID: 6709899723361301903}
+  shootInterval: 4
+  shootDistance: 10
+  initialShootDistance: 35
 --- !u!1 &5273763173533562608
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemy_movement
   speed: 3
+  lifeTime: 8
 --- !u!50 &1130375615797360307
 Rigidbody2D:
   serializedVersion: 5

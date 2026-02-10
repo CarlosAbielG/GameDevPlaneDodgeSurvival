@@ -4,13 +4,14 @@ public class movement : MonoBehaviour
 {
     [SerializeField]
     private Rigidbody2D rb;
-
-    public float moveSpeed = 5f;
-
-    public float padding = 0.2f;
-
-    public float tiltAmount = 20f;
-    public float tiltSmooth = 10f;
+    [SerializeField]
+    private float moveSpeed = 5f;
+    [SerializeField]
+    private float padding = 0.2f;
+    [SerializeField]
+    private float tiltAmount = 20f;
+    [SerializeField]
+    private float tiltSmooth = 10f;
 
     Camera cam;
 

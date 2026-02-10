@@ -7,6 +7,13 @@ public class enemy_shooting : MonoBehaviour
     public GameObject missile;
     public Transform missilePos;
 
+    [SerializeField]
+    private float shootInterval = 4f;
+    [SerializeField]
+    private float shootDistance = 15f;
+    [SerializeField]
+    private float initialShootDistance = 35f;
+
     private float timer;
     private GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -14,7 +21,7 @@ public class enemy_shooting : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        if(Vector2.Distance(transform.position, player.transform.position)<35)
+        if(Vector2.Distance(transform.position, player.transform.position)<initialShootDistance)
         {
             shoot();
         }
@@ -27,7 +34,7 @@ public class enemy_shooting : MonoBehaviour
 
         float distance = Vector2.Distance(transform.position, player.transform.position);
 
-        if(timer >= 4f && distance < 15f)
+        if(timer >= shootInterval && distance < shootDistance)
         {
             timer = 0f;
             shoot();
@@ -38,4 +45,14 @@ public class enemy_shooting : MonoBehaviour
     {
         Instantiate(missile, missilePos.position, Quaternion.identity);
     }
+
+    void OnDrawGizmosSelected()
+{
+    Gizmos.color = Color.red;
+    Gizmos.DrawWireSphere(transform.position, shootDistance);
+
+    Gizmos.color = Color.yellow;
+    Gizmos.DrawWireSphere(transform.position, initialShootDistance);
+}
+
 }

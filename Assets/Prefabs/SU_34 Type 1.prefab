@@ -46,6 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   missile: {fileID: 3874186760508602664, guid: b75422bb76a1e34488cc7a35b82827d4, type: 3}
   missilePos: {fileID: 1505184030388495084}
+  shootInterval: 4
+  shootDistance: 10
+  initialShootDistance: 35
 --- !u!1 &9168195009468711778
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   speed: 3
+  lifeTime: 8
 --- !u!50 &3915913509484636315
 Rigidbody2D:
   serializedVersion: 5
